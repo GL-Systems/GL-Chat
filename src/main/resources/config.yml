@@ -1,0 +1,65 @@
+# Language file to use, from lang/. Bundled: en, es.
+# An unknown value falls back to 'en' with a warning rather than producing blank messages.
+lang: en
+
+# Extra logging for troubleshooting.
+debug: false
+
+modules:
+  chat-cooldown: true
+  chat-format: true
+  chat-filter: true
+  command-spy: true
+  anti-cap: true
+  link-blocker: true
+  mention-sounds: true
+  join-quit-messages: true
+
+# Cross-server chat over Redis.
+#
+# When ENABLED is false the plugin behaves exactly as it does without this section: nothing
+# connects, no threads start, and chat stays local.
+#
+# When ENABLED is true every message this server shows is published to the channel below, and
+# every message published by the other servers is shown here. Messages are mirrored exactly as
+# the origin rendered them (format, hovers and clicks included), so a server does not need the
+# sender's rank or PlaceholderAPI expansions to display them correctly.
+multi-server:
+  enabled: false
+
+  # Identifies this server in the packets it publishes. Give each server a distinct value.
+  # Purely informational: loop prevention uses a per-boot instance id, so a duplicate name
+  # here can never cause a message to bounce.
+  server-name: "server-1"
+
+  redis:
+    # Servers that share a channel share a chat. Use different channels to keep two networks
+    # apart on the same Redis instance.
+    channel: "global-chat"
+
+    # Values support ${ENV_VAR} substitution so secrets can live outside this file.
+    host: "localhost"
+    port: 6379
+    password: ""
+    # Refuse to start the bus with an empty password unless this is explicitly set to true.
+    allow-insecure: false
+
+  # HMAC secret shared by all servers on the channel. Leave empty to disable signing
+  # (NOT recommended: anyone able to publish to Redis could inject chat messages).
+  secret: ""
+
+  # Retry policy for failed publishes (non-blocking backoff).
+  retry:
+    attempts: 3
+    backoff-ms: 100
+
+# Commands that stop working while the chat is off, so private messaging cannot be used to
+# talk around it. Namespaced spellings (/minecraft:msg) are matched too.
+# Players with golden.chat.bypass are unaffected.
+blacklisted-commands-disabled-chat:
+  - "/msg"
+  - "/reply"
+  - "/r"
+  - "/tell"
+  - "/whisper"
+  - "/w"

@@ -1,0 +1,39 @@
+global:
+  only_players: "&cThis command can only be executed by a player."
+  no_permission: "&cYou don't have permission to execute this command."
+  player_not_found: "&cPlayer not found."
+  invalid_number: "&cInvalid number."
+
+chat_cmd:
+  usage:
+    - "&#a78bfa&lGL&#eeeeee&lChat"
+    - ""
+    - "&#eeeeee» &#a78bfa/chat on &#eeeeee- Enable the chat."
+    - "&#eeeeee» &#a78bfa/chat off &#eeeeee- Disable the chat."
+    - "&#eeeeee» &#a78bfa/chat toggle &#eeeeee- Toggle the chat state."
+    - "&#eeeeee» &#a78bfa/chat status &#eeeeee- Show the current chat state."
+    - "&#eeeeee» &#a78bfa/chat clear &#eeeeee- Clear the chat for everyone."
+    - "&#eeeeee» &#a78bfa/chat delay <seconds> &#eeeeee- Set the delay between messages."
+    - "&#eeeeee» &#a78bfa/chat reload &#eeeeee- Reload the configuration."
+    - ""
+  enabled: "&aThe chat has been &lenabled&a."
+  disabled: "&cThe chat has been &ldisabled&c."
+  already_enabled: "&cThe chat is already enabled."
+  already_disabled: "&cThe chat is already disabled."
+  chat_disabled: "&cThe chat is disabled."
+  status: "&7Chat state: %status%"
+  status_on: "&aEnabled"
+  status_off: "&cDisabled"
+  cleared_sender: "&aChat cleared successfully."
+  cleared: "&7%player% &ahas cleared the chat."
+  delay_usage: "&cUsage: /chat delay <seconds>"
+  delay_set: "&aChat delay set to &f%seconds% &aseconds."
+  delay_module_disabled: "&cThe 'chat-cooldown' module is disabled, so this setting would do nothing."
+  reloaded: "&aConfiguration reloaded."
+  reload_failed: "&cReload failed. Check the console for details."
+
+commandspy_cmd:
+  usage:
+    - "&#eeeeee» &#a78bfa/commandspy &#eeeeee- Toggle your command spy output."
+  enabled: "&aCommand spy &lenabled&a."
+  disabled: "&cCommand spy &ldisabled&c."

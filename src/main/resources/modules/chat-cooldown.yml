@@ -1,0 +1,20 @@
+bypass_permission: "golden.chat.cooldown.bypass"
+
+chat:
+  enabled: true
+  # How many messages a player can send in the time window
+  max_messages: 1
+  # Time window in seconds
+  window_seconds: 3
+  cooldown_message: "&cPlease wait before sending another message."
+
+commands:
+  enabled: true
+  cooldown_seconds: 1
+  cooldown_message: "&cPlease wait before executing another command."
+  # If empty, applies to all commands
+  watched_commands:
+    - "/pay"
+    - "/trade"
+    - "/tpa"
+    - "/home"

@@ -1,0 +1,27 @@
+filter_mode: "REPLACE" # REMOVE, REPLACE, BLOCK
+
+replacement: "****"
+bypass_permission: "golden.chat.filter.bypass"
+
+# Block the entire message if it contains X or more filtered words
+block_threshold: 3
+
+# Notify the player when their message was filtered
+notify_player: true
+notify_message: "&cYour message contains forbidden words."
+
+# Notify staff members when a player triggers the filter
+notify_staff: true
+notify_staff_permission: "golden.chat.filter.notify"
+notify_staff_message: "&8[&cFilter&8] &7%player% &8» &f%original_message%"
+
+# Ignore case: "BadWord1" will also be filtered
+case_insensitive: true
+
+# Filter leet-speak variations: "b4dw0rd", "b@dword"
+smart_filter: true
+
+filter_words:
+  - "badword1"
+  - "badword2"
+  - "badword3"

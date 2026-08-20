@@ -1,0 +1,14 @@
+max_caps_percentage: 50
+min_message_length: 5
+bypass_permission: "golden.chat.anticap.bypass"
+
+# warn: warns the player but still sends the message
+# lowercase: automatically converts the message to lowercase
+# block: blocks the message completely
+action: "warn"
+
+warn_message: "&cPlease avoid using too many capital letters."
+
+# Notify the player when their message is converted to lowercase
+notify_on_lowercase: false
+notify_lowercase_message: "&7Your message was converted to lowercase."

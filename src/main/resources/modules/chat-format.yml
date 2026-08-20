@@ -1,0 +1,91 @@
+# Which format wins when a player matches several: HIGHEST_FIRST or LOWER_FIRST.
+# An unrecognised value falls back to HIGHEST_FIRST with a warning.
+priority-ordering: HIGHEST_FIRST
+
+# How the text in 'text' and 'hover' is written. Applies to every format that does not
+# override it with its own 'text-format'.
+#
+#   LEGACY       &c codes, &#RRGGBB hex          e.g. "&4[OWNER] &7%message%"
+#   MINIMESSAGE  <red>, <#RRGGBB>, <gradient>    e.g. "<#D03030><bold>OWNER </bold><gray><message>"
+#
+# MINIMESSAGE understands & codes too, so both styles can be mixed freely in one line:
+#
+#   "&c[OWNER] <#D03030><bold>%player_name%</bold><gray> <message>"
+#
+# That covers &c, &l, &#RRGGBB and &x&R&R&G&G&B&B. A bare #RRGGBB is deliberately left alone,
+# because it is how MiniMessage writes its own <#RRGGBB> tags. LuckPerms prefixes and most of
+# PlaceholderAPI return legacy colours, and those are converted too, so switching a format to
+# MINIMESSAGE does not mean rewriting your placeholders.
+#
+# In MINIMESSAGE the message slot can be written either as %message% or as <message>; both
+# work, and unlike LEGACY a tag may wrap it: "<gradient:#ff0000:#00ff00><message></gradient>".
+text-format: LEGACY
+
+# Placeholders resolved by this plugin, in 'text', 'hover' and 'click.value':
+#   %player%, %player_name%   the sender's real name
+#   %player_displayname%      the sender's display name
+#   %world%  %ping%  %time%
+#   %message%                 the sender's message; 'text' and 'hover' only, never in 'click'
+#
+# Anything else (%luckperms_prefix%, %vault_eco_balance%, %player_health% ...) comes from
+# PlaceholderAPI and needs that plugin plus the matching expansion installed. Without them the
+# token is simply left as written.
+#
+# The sender's message is inserted as plain text: colour codes typed by a player are only
+# honoured if they hold golden.chat.color, and placeholders typed by a player are never
+# resolved.
+
+formats:
+  owner:
+    priority: 100
+    permission: "golden.chat.format.owner"
+    parts:
+      - text: "&4[OWNER] "
+        hover:
+          - "&4&lServer Owner"
+          - "&7Click to send a message"
+        click:
+          action: "suggest_command"
+          value: "/msg %player% "
+      - text: "%luckperms_prefix% "
+        hover:
+          - "&7Rank: &4Owner"
+      - text: "%player_name%"
+        hover:
+          - "&f%player_name%"
+          - ""
+          - "&7Health: &c%player_health% &c❤"
+          - "&7Ping: &e%ping%ms"
+          - "&7World: &f%world%"
+          - ""
+          - "&7Click to message"
+        click:
+          action: "suggest_command"
+          value: "/msg %player% "
+      - text: "&8: &7"
+      - text: "%message%"
+        hover:
+          - "&7Sent at: &e%time%"
+
+  default:
+    priority: 10
+    # Overrides the file-wide text-format for this format only.
+    text-format: LEGACY
+    parts:
+      - text: "%luckperms_prefix% "
+        hover:
+          - "&7Rank information"
+      - text: "&7%player_name%"
+        hover:
+          - "&f%player_name%"
+          - ""
+          - "&7Coins: &6%vault_eco_balance%"
+          - ""
+          - "&7Click to message"
+        click:
+          action: "suggest_command"
+          value: "/msg %player% "
+      - text: "&8: &7"
+      - text: "%message%"
+        hover:
+          - "&7Sent at &e%time%"

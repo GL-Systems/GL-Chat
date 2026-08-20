@@ -1,0 +1,21 @@
+# Format for the spy message
+# Available placeholders: %player%, %command%, %world%, %time%
+format: "&7%player% &8» &7%command%"
+
+# Permission required to receive command spy messages.
+# Toggling your own output with /commandspy needs golden.chat.commandspy instead.
+spy_permission: "golden.chat.commandspy.see"
+
+# Commands that will NEVER be logged (passwords, sensitive commands).
+# Matched by name, so /authme:login is caught by an entry of "/login".
+blacklisted_commands:
+  - "/login"
+  - "/register"
+  - "/changepassword"
+  - "/reg"
+
+# Only log commands from this list (empty = log all commands)
+whitelisted_commands: []
+
+# Also send the spy message to console
+spy_to_console: true

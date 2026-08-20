@@ -1,0 +1,22 @@
+bypass_permission: "golden.chat.links.bypass"
+
+# block: cancels the message entirely
+# replace: replaces the link with the replacement text
+action: "block"
+replacement: "&8[&cLINK REMOVED&8]"
+
+# Notify the player when their message was blocked/replaced
+notify_player: true
+notify_message: "&cLinks are not allowed in chat."
+
+# Notify staff when a player tries to send a link
+notify_staff: true
+notify_staff_permission: "golden.chat.links.notify"
+notify_staff_message: "&8[&6Links&8] &7%player% &8tried to send: &f%message%"
+
+whitelisted_domains:
+  - "youtube.com"
+  - "youtu.be"
+  - "twitch.tv"
+  - "discord.gg"
+  - "imgur.com"

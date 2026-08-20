@@ -1,0 +1,63 @@
+name: GL-Chat
+version: '${version}'
+description: 'Modular chat: formats, filters, mentions, cooldowns and cross-server mirroring.'
+author: GL Studio
+
+main: org.glstudio.chat.Chat
+# major.minor only: Bukkit rejects a patch-level api-version outright.
+api-version: '1.21'
+load: POSTWORLD
+
+# Optional: without it everything works except placeholder resolution in chat formats and
+# join/quit messages.
+softdepend:
+  - PlaceholderAPI
+
+# Commands are registered at runtime by the Nexus CommandManager; permissions are declared
+# here so permission plugins can discover them and defaults are well-defined.
+#
+# The per-module bypass permissions live in modules/*.yml and are configurable, so they are
+# not listed here.
+permissions:
+  golden.chat.admin:
+    description: Administer GL-Chat (/chat and its subcommands)
+    default: op
+  golden.chat.bypass:
+    description: Talk, and use messaging commands, while the chat is off
+    default: op
+  golden.chat.color:
+    description: Use & colour codes in chat messages
+    default: op
+  golden.chat.commandspy:
+    description: Toggle your own command-spy output with /commandspy
+    default: op
+  golden.chat.commandspy.see:
+    description: Receive command-spy output
+    default: op
+  golden.chat.anticap.bypass:
+    description: Bypass the capital-letters limit
+    default: false
+  golden.chat.cooldown.bypass:
+    description: Bypass the chat and command cooldowns
+    default: false
+  golden.chat.filter.bypass:
+    description: Bypass the word filter
+    default: false
+  golden.chat.filter.notify:
+    description: Receive word-filter alerts
+    default: op
+  golden.chat.links.bypass:
+    description: Post links
+    default: false
+  golden.chat.links.notify:
+    description: Receive link-blocker alerts
+    default: op
+  golden.chat.mention.bypass:
+    description: Never be pinged by a mention
+    default: false
+  golden.chat.join.bypass:
+    description: Join without announcing it
+    default: false
+  golden.chat.quit.bypass:
+    description: Leave without announcing it
+    default: false

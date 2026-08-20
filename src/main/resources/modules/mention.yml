@@ -1,0 +1,21 @@
+sound:
+  sound: "entity.experience_orb.pickup"
+  volume: 1.0
+  pitch: 1.0
+
+# Available options: NAME or ARROBA
+# NAME: "player" - mentions when someone says your username
+# ARROBA: "@player" - mentions only when using @ symbol before username
+mention_type: "ARROBA"
+
+highlight:
+  enabled: true
+  # How a matched name is rendered. %player% is the mentioned player's real name.
+  format: "&e@%player%&r"
+
+options:
+  play_sound_to_mentioned: true
+  play_sound_to_sender: false
+
+# Players with this permission are never pinged.
+bypass_permission: "golden.chat.mention.bypass"

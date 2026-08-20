@@ -1,0 +1,22 @@
+join:
+  format: "&8[&a+&8] %luckperms_prefix% %player_name%&r"
+  bypass_op: false
+  bypass_permission: "golden.chat.join.bypass"
+  sound:
+    enabled: true
+    sound: "entity.experience_orb.pickup"
+    volume: 1.0
+    pitch: 1.0
+  first_join:
+    enabled: true
+    format: "&8[&a+&8] &b%player_name% &ajoined for the first time!&r"
+
+quit:
+  format: "&8[&c-&8] %luckperms_prefix% %player_name%&r"
+  bypass_op: false
+  bypass_permission: "golden.chat.quit.bypass"
+  sound:
+    enabled: true
+    sound: "entity.villager.no"
+    volume: 1.0
+    pitch: 1.0

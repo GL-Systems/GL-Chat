@@ -1,0 +1,39 @@
+global:
+  only_players: "&cEste comando solo puede ser ejecutado por jugadores."
+  no_permission: "&cNo tienes permiso para ejecutar este comando."
+  player_not_found: "&cJugador no encontrado."
+  invalid_number: "&cNúmero inválido."
+
+chat_cmd:
+  usage:
+    - "&#a78bfa&lGL&#eeeeee&lChat"
+    - ""
+    - "&#eeeeee» &#a78bfa/chat on &#eeeeee- Activa el chat."
+    - "&#eeeeee» &#a78bfa/chat off &#eeeeee- Desactiva el chat."
+    - "&#eeeeee» &#a78bfa/chat toggle &#eeeeee- Alterna el estado del chat."
+    - "&#eeeeee» &#a78bfa/chat status &#eeeeee- Muestra el estado actual del chat."
+    - "&#eeeeee» &#a78bfa/chat clear &#eeeeee- Limpia el chat para todos los jugadores."
+    - "&#eeeeee» &#a78bfa/chat delay <segundos> &#eeeeee- Establece un retraso entre mensajes."
+    - "&#eeeeee» &#a78bfa/chat reload &#eeeeee- Recarga la configuración."
+    - ""
+  enabled: "&aEl chat ha sido &lactivado&a."
+  disabled: "&cEl chat ha sido &ldesactivado&c."
+  already_enabled: "&cEl chat ya está activado."
+  already_disabled: "&cEl chat ya está desactivado."
+  chat_disabled: "&cEl chat está desactivado."
+  status: "&7Estado del chat: %status%"
+  status_on: "&aActivado"
+  status_off: "&cDesactivado"
+  cleared_sender: "&aChat limpiado correctamente."
+  cleared: "&7%player% &aha limpiado el chat."
+  delay_usage: "&cUso: /chat delay <segundos>"
+  delay_set: "&aRetraso del chat establecido a &f%seconds% &asegundos."
+  delay_module_disabled: "&cEl módulo 'chat-cooldown' está desactivado, así que este ajuste no haría nada."
+  reloaded: "&aConfiguración recargada."
+  reload_failed: "&cFalló la recarga. Revisa la consola para más detalles."
+
+commandspy_cmd:
+  usage:
+    - "&#eeeeee» &#a78bfa/commandspy &#eeeeee- Alterna tu espía de comandos."
+  enabled: "&aEspía de comandos &lactivado&a."
+  disabled: "&cEspía de comandos &ldesactivado&c."

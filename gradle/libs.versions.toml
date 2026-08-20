@@ -1,0 +1,16 @@
+[versions]
+paper = "1.21.8-R0.1-SNAPSHOT"
+nexus = "v1.0.5"
+jedis = "7.2.0"
+gson = "2.13.2"
+placeholderapi = "2.11.6"
+junit = "5.11.3"
+
+[libraries]
+paper-api = { module = "io.papermc.paper:paper-api", version.ref = "paper" }
+nexus = { module = "com.github.7Str1kes:Nexus", version.ref = "nexus" }
+jedis = { module = "redis.clients:jedis", version.ref = "jedis" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+placeholderapi = { module = "me.clip:placeholderapi", version.ref = "placeholderapi" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
