@@ -9,6 +9,10 @@ public final class Permissions {
 
     public static final String COMMAND_SPY_TOGGLE = "golden.chat.commandspy";
 
+    public static final String MSG = "golden.chat.msg";
+
+    public static final String IGNORE = "golden.chat.ignore";
+
     private Permissions() {
     }
 }

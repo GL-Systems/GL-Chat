@@ -1,0 +1,21 @@
+# Format shown to the sender of a /msg. Placeholders: %player% (you), %target%, %message%.
+sender_format: "&7[&dYou -> %target%&7] &f%message%"
+
+# Format shown to the recipient of a /msg. Placeholders: %player% (the sender), %target% (you), %message%.
+receiver_format: "&7[&d%player% -> You&7] &f%message%"
+
+# Whether a player is allowed to /msg themselves.
+allow_self_message: false
+
+# Permission that lets a message through even if the recipient has ignored the sender.
+# Players with this permission (staff, by default nobody) can never be ignored.
+ignore_bypass_permission: "golden.chat.ignore.bypass"
+
+# /msg, /reply and /ignore automatically reach across the network when MULTI-SERVER.ENABLED is
+# true in config.yml: if the target isn't on this server, the request is broadcast so whichever
+# server actually has them delivers it (rendered with THAT server's own format) and reports back
+# whether it went through. /ignore can likewise target a player who has never connected to this
+# particular server, as long as they're online somewhere on the network. There is no toggle for
+# this; it's automatic whenever multi-server chat is on, and behaves exactly as before if it's
+# off. Note: ignore lists themselves are still stored per-server (data/ignores.yml), so an ignore
+# added on one server won't yet be visible from another.

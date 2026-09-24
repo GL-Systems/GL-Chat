@@ -34,6 +34,15 @@ permissions:
   golden.chat.commandspy.see:
     description: Receive command-spy output
     default: op
+  golden.chat.msg:
+    description: Send and receive private messages (/msg, /tell, /whisper, /w, /reply, /r)
+    default: true
+  golden.chat.ignore:
+    description: Manage your ignored players (/ignore)
+    default: true
+  golden.chat.ignore.bypass:
+    description: Reach a player even if they have ignored you
+    default: false
   golden.chat.anticap.bypass:
     description: Bypass the capital-letters limit
     default: false

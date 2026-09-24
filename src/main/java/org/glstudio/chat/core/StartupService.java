@@ -23,6 +23,10 @@ import org.glstudio.chat.features.joinquit.JoinQuitService;
 import org.glstudio.chat.features.joinquit.listener.JoinQuitListener;
 import org.glstudio.chat.features.linkblocker.LinkBlockerService;
 import org.glstudio.chat.features.mention.MentionService;
+import org.glstudio.chat.features.privatemessage.PrivateMessageService;
+import org.glstudio.chat.features.privatemessage.command.IgnoreCommand;
+import org.glstudio.chat.features.privatemessage.command.MsgCommand;
+import org.glstudio.chat.features.privatemessage.command.ReplyCommand;
 import org.glstudio.nexus.utils.LoggerUtils;
 
 import java.util.ArrayList;
@@ -128,6 +132,13 @@ public class StartupService {
             pipeline.register(plugin.getAntiCapService());
             pipeline.register(plugin.getMentionService());
 
+            if (plugin.getPacketHandler() != null && plugin.getJoinQuitService() != null) {
+                plugin.getPacketHandler().setJoinQuitService(plugin.getJoinQuitService());
+            }
+            if (plugin.getPacketHandler() != null && plugin.getPrivateMessageService() != null) {
+                plugin.getPacketHandler().setPrivateMessageService(plugin.getPrivateMessageService());
+            }
+
             int listeners = registerListeners();
             int commands = registerCommands();
 
@@ -150,6 +161,7 @@ public class StartupService {
             case LINK_BLOCKER -> plugin.setLinkBlockerService(new LinkBlockerService(plugin));
             case COMMAND_SPY -> plugin.setCommandSpyService(new CommandSpyService(plugin));
             case CHAT_COOLDOWN -> plugin.setChatCooldownService(new ChatCooldownService(plugin));
+            case PRIVATE_MESSAGES -> plugin.setPrivateMessageService(new PrivateMessageService(plugin));
         }
     }
 
@@ -177,13 +189,21 @@ public class StartupService {
     }
 
     private int registerCommands() {
+        int commands = 1;
         plugin.getCommandManager().register(new ChatCommand(plugin.getCommandManager(), plugin));
 
         if (plugin.getCommandSpyService() != null) {
             plugin.getCommandManager().register(new CommandSpyCommand(plugin.getCommandManager(), plugin));
-            return 2;
+            commands++;
         }
 
-        return 1;
+        if (plugin.getPrivateMessageService() != null) {
+            plugin.getCommandManager().register(new MsgCommand(plugin.getCommandManager(), plugin));
+            plugin.getCommandManager().register(new ReplyCommand(plugin.getCommandManager(), plugin));
+            plugin.getCommandManager().register(new IgnoreCommand(plugin.getCommandManager(), plugin));
+            commands += 3;
+        }
+
+        return commands;
     }
 }

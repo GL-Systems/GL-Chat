@@ -37,3 +37,30 @@ commandspy_cmd:
     - "&#eeeeee» &#a78bfa/commandspy &#eeeeee- Alterna tu espía de comandos."
   enabled: "&aEspía de comandos &lactivado&a."
   disabled: "&cEspía de comandos &ldesactivado&c."
+
+msg_cmd:
+  usage:
+    - "&#eeeeee» &#a78bfa/msg <jugador> <mensaje> &#eeeeee- Envía un mensaje privado."
+  cannot_message_self: "&cNo puedes enviarte un mensaje a ti mismo."
+  blocked_by_target: "&cEse jugador te está ignorando."
+
+reply_cmd:
+  usage:
+    - "&#eeeeee» &#a78bfa/reply <mensaje> &#eeeeee- Responde al último mensaje privado."
+  no_target: "&cNo tienes a nadie a quien responder."
+
+ignore_cmd:
+  usage:
+    - "&#eeeeee» &#a78bfa/ignore add <jugador> &#eeeeee- Ignora los mensajes privados de un jugador."
+    - "&#eeeeee» &#a78bfa/ignore remove <jugador> &#eeeeee- Deja de ignorar a un jugador."
+    - "&#eeeeee» &#a78bfa/ignore list &#eeeeee- Lista los jugadores que estás ignorando."
+  usage_add: "&cUso: /ignore add <jugador>"
+  usage_remove: "&cUso: /ignore remove <jugador>"
+  cannot_ignore_self: "&cNo puedes ignorarte a ti mismo."
+  already_ignored: "&cYa estás ignorando a &f%target%&c."
+  not_ignored: "&cNo estás ignorando a &f%target%&c."
+  added: "&aAhora estás ignorando a &f%target%&a."
+  removed: "&aYa no estás ignorando a &f%target%&a."
+  list_empty: "&7No estás ignorando a nadie."
+  list_header: "&7Jugadores ignorados (&f%count%&7):"
+  list_entry: "&7- &f%target%"

@@ -37,3 +37,30 @@ commandspy_cmd:
     - "&#eeeeee» &#a78bfa/commandspy &#eeeeee- Toggle your command spy output."
   enabled: "&aCommand spy &lenabled&a."
   disabled: "&cCommand spy &ldisabled&c."
+
+msg_cmd:
+  usage:
+    - "&#eeeeee» &#a78bfa/msg <player> <message> &#eeeeee- Send a private message."
+  cannot_message_self: "&cYou cannot send a message to yourself."
+  blocked_by_target: "&cThat player is ignoring you."
+
+reply_cmd:
+  usage:
+    - "&#eeeeee» &#a78bfa/reply <message> &#eeeeee- Reply to the last private message."
+  no_target: "&cYou have nobody to reply to."
+
+ignore_cmd:
+  usage:
+    - "&#eeeeee» &#a78bfa/ignore add <player> &#eeeeee- Ignore a player's private messages."
+    - "&#eeeeee» &#a78bfa/ignore remove <player> &#eeeeee- Stop ignoring a player."
+    - "&#eeeeee» &#a78bfa/ignore list &#eeeeee- List the players you are ignoring."
+  usage_add: "&cUsage: /ignore add <player>"
+  usage_remove: "&cUsage: /ignore remove <player>"
+  cannot_ignore_self: "&cYou cannot ignore yourself."
+  already_ignored: "&cYou are already ignoring &f%target%&c."
+  not_ignored: "&cYou are not ignoring &f%target%&c."
+  added: "&aYou are now ignoring &f%target%&a."
+  removed: "&aYou are no longer ignoring &f%target%&a."
+  list_empty: "&7You are not ignoring anyone."
+  list_header: "&7Ignored players (&f%count%&7):"
+  list_entry: "&7- &f%target%"

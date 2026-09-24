@@ -15,7 +15,8 @@ public enum Module {
     CHAT_FILTER("chat-filter"),
     LINK_BLOCKER("link-blocker"),
     COMMAND_SPY("command-spy"),
-    CHAT_COOLDOWN("chat-cooldown");
+    CHAT_COOLDOWN("chat-cooldown"),
+    PRIVATE_MESSAGES("private-messages");
 
     private final String key;
 

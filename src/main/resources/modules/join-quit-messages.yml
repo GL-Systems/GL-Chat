@@ -1,7 +1,16 @@
+# 'multi_server' (also settable per group below) only matters if MULTI-SERVER.ENABLED is true in
+# config.yml. When it's on for a format:
+#   - The message is mirrored to every server on the network, not just this one.
+#   - A player moving between servers behind the same proxy will NOT trigger it: the plugin waits
+#     briefly for a matching join/quit on another server before announcing, so only an actual
+#     network join (wasn't on any server) or network leave (not on any server anymore) shows.
+# When it's off (the default), join/quit behaves exactly as it always has: shown immediately and
+# only on the server where it happened, switch or not.
 join:
   format: "&8[&a+&8] %luckperms_prefix% %player_name%&r"
   bypass_op: false
   bypass_permission: "golden.chat.join.bypass"
+  multi_server: false
   sound:
     enabled: true
     sound: "entity.experience_orb.pickup"
@@ -15,8 +24,38 @@ quit:
   format: "&8[&c-&8] %luckperms_prefix% %player_name%&r"
   bypass_op: false
   bypass_permission: "golden.chat.quit.bypass"
+  multi_server: false
   sound:
     enabled: true
     sound: "entity.villager.no"
     volume: 1.0
     pitch: 1.0
+
+# Custom join/quit messages for specific LuckPerms groups (or any permission plugin: LuckPerms
+# grants every group member a "group.<name>" permission automatically, so this needs no direct
+# LuckPerms dependency).
+#
+# The key ("vip", "staff", ...) is just a label; delete these examples or add your own. A player
+# is checked against every group below, highest 'priority' first, and the first one they have
+# permission for is used. A player who matches none falls back to the plain 'join'/'quit' format
+# above. On join, 'first_join' still wins over any group format.
+#
+# 'permission' defaults to "group.<key>" if omitted, which is exactly what LuckPerms grants to
+# members of a group named <key>. Set it explicitly to match a different group name or a custom
+# permission node.
+#
+# 'multi_server' works the same as the top-level one above, per group: 'staff' below is announced
+# network-wide (with switch protection), while 'vip' stays a purely local, per-server flourish.
+groups:
+  vip:
+    priority: 10
+    permission: "group.vip"
+    join_format: "&8[&a+&8] &6[VIP] &b%player_name% &ajoined the game!&r"
+    quit_format: "&8[&c-&8] &6[VIP] &b%player_name% &cleft the game.&r"
+    multi_server: false
+  staff:
+    priority: 20
+    permission: "group.staff"
+    join_format: "&8[&a+&8] &c[STAFF] &b%player_name% &ajoined the network!&r"
+    quit_format: "&8[&c-&8] &c[STAFF] &b%player_name% &cleft the network.&r"
+    multi_server: true

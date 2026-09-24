@@ -12,6 +12,7 @@ import org.glstudio.chat.features.commandspy.CommandSpySettings;
 import org.glstudio.chat.features.joinquit.JoinQuitSettings;
 import org.glstudio.chat.features.linkblocker.LinkBlockerSettings;
 import org.glstudio.chat.features.mention.MentionSettings;
+import org.glstudio.chat.features.privatemessage.PrivateMessageSettings;
 import org.glstudio.nexus.modules.command.Command;
 import org.glstudio.nexus.utils.ConfigFile;
 import org.glstudio.nexus.utils.LoggerUtils;
@@ -38,6 +39,7 @@ public class ConfigManager {
     private final ConfigFile linkBlockerConfig;
     private final ConfigFile commandSpyConfig;
     private final ConfigFile chatCooldownConfig;
+    private final ConfigFile privateMessageConfig;
 
     private boolean debug;
     private List<String> blockedCommandsWhenChatOff;
@@ -52,6 +54,7 @@ public class ConfigManager {
     private LinkBlockerSettings linkBlocker;
     private CommandSpySettings commandSpy;
     private ChatCooldownSettings chatCooldown;
+    private PrivateMessageSettings privateMessage;
 
     public ConfigManager(Chat plugin) {
         this.plugin = plugin;
@@ -67,6 +70,7 @@ public class ConfigManager {
         this.linkBlockerConfig = new ConfigFile(plugin, "modules", "link-blocker.yml");
         this.commandSpyConfig = new ConfigFile(plugin, "modules", "command-spy.yml");
         this.chatCooldownConfig = new ConfigFile(plugin, "modules", "chat-cooldown.yml");
+        this.privateMessageConfig = new ConfigFile(plugin, "modules", "private-messages.yml");
 
         load();
     }
@@ -82,6 +86,7 @@ public class ConfigManager {
         linkBlockerConfig.reload();
         commandSpyConfig.reload();
         chatCooldownConfig.reload();
+        privateMessageConfig.reload();
 
         load();
     }
@@ -102,6 +107,7 @@ public class ConfigManager {
         this.linkBlocker = LinkBlockerSettings.read(linkBlockerConfig);
         this.commandSpy = CommandSpySettings.read(commandSpyConfig);
         this.chatCooldown = ChatCooldownSettings.read(chatCooldownConfig);
+        this.privateMessage = PrivateMessageSettings.read(privateMessageConfig);
 
         Command.setNoPermissionMessage(getMessage("global.no_permission"));
         Command.setPlayersOnlyMessage(getMessage("global.only_players"));

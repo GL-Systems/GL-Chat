@@ -134,7 +134,8 @@ public class RedisService {
 
     public void publishPacket(Packet packet) {
         String channel = switch (packet.getType()) {
-            case CHAT_MESSAGE -> chatChannel;
+            case CHAT_MESSAGE, PLAYER_PRESENCE, NETWORK_MESSAGE, PRIVATE_MESSAGE, PRIVATE_MESSAGE_ACK,
+                 PLAYER_LOOKUP_REQUEST, PLAYER_LOOKUP_RESPONSE -> chatChannel;
         };
 
         try (Jedis jedis = jedisPool.getResource()) {

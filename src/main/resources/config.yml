@@ -14,6 +14,7 @@ modules:
   link-blocker: true
   mention-sounds: true
   join-quit-messages: true
+  private-messages: true
 
 # Cross-server chat over Redis.
 #

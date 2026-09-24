@@ -2,6 +2,12 @@ package org.glstudio.chat.common.network;
 
 import com.google.gson.Gson;
 import org.glstudio.chat.common.network.packets.ChatMessagePacket;
+import org.glstudio.chat.common.network.packets.NetworkMessagePacket;
+import org.glstudio.chat.common.network.packets.PlayerLookupRequestPacket;
+import org.glstudio.chat.common.network.packets.PlayerLookupResponsePacket;
+import org.glstudio.chat.common.network.packets.PlayerPresencePacket;
+import org.glstudio.chat.common.network.packets.PrivateMessageAckPacket;
+import org.glstudio.chat.common.network.packets.PrivateMessagePacket;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -44,6 +50,12 @@ public final class PacketCodec {
         PacketType packetType = PacketType.valueOf(type);
         return switch (packetType) {
             case CHAT_MESSAGE -> GSON.fromJson(json, ChatMessagePacket.class);
+            case PLAYER_PRESENCE -> GSON.fromJson(json, PlayerPresencePacket.class);
+            case NETWORK_MESSAGE -> GSON.fromJson(json, NetworkMessagePacket.class);
+            case PRIVATE_MESSAGE -> GSON.fromJson(json, PrivateMessagePacket.class);
+            case PRIVATE_MESSAGE_ACK -> GSON.fromJson(json, PrivateMessageAckPacket.class);
+            case PLAYER_LOOKUP_REQUEST -> GSON.fromJson(json, PlayerLookupRequestPacket.class);
+            case PLAYER_LOOKUP_RESPONSE -> GSON.fromJson(json, PlayerLookupResponsePacket.class);
         };
     }
 

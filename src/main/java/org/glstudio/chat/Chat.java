@@ -20,6 +20,7 @@ import org.glstudio.chat.features.globalchat.GlobalChatService;
 import org.glstudio.chat.features.joinquit.JoinQuitService;
 import org.glstudio.chat.features.linkblocker.LinkBlockerService;
 import org.glstudio.chat.features.mention.MentionService;
+import org.glstudio.chat.features.privatemessage.PrivateMessageService;
 import org.glstudio.nexus.api.NexusAPI;
 import org.glstudio.nexus.modules.command.CommandManager;
 import org.glstudio.nexus.utils.LoggerUtils;
@@ -52,6 +53,7 @@ public final class Chat extends JavaPlugin {
     private CommandSpyService commandSpyService;
     private ChatCooldownService chatCooldownService;
     private ChatControlService chatControlService;
+    private PrivateMessageService privateMessageService;
 
     @Override
     public void onEnable() {
